@@ -26,7 +26,7 @@ def test_filter_returns_interaction_with_matching_ids() -> None:
     assert result[0].id == 1
 
 def test_filter_excludes_interaction_with_different_learner_id() -> None:
-    interactions = [_make_log(1, 2, 1)]
+    interactions = [_make_log(1, 2, 1)]  # id=1, learner_id=2, item_id=1
     result = _filter_by_item_id(interactions, 1)
     assert len(result) == 1
     assert result[0].id == 1
@@ -36,7 +36,7 @@ def test_filter_excludes_interaction_with_different_learner_id() -> None:
 def test_filter_returns_no_matches_when_item_id_not_present() -> None:
     """Test filtering when no interactions match the given item_id."""
     interactions = [_make_log(1, 1, 1), _make_log(2, 2, 2)]
-    result = _filter_by_item_id(interactions, 999)  # item_id that doesn't exist
+    result = _filter_by_item_id(interactions, 999)
     assert result == []
 
 
