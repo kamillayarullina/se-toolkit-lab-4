@@ -33,8 +33,10 @@ class InteractionLogCreate(SQLModel):
 class InteractionModel(SQLModel):
     """Response schema for an interaction."""
 
+
     id: int
     learner_id: int
     item_id: int
     kind: str
-    timestamp: datetime
+    created_at: datetime
+
